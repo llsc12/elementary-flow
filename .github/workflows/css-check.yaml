@@ -36,8 +36,8 @@ jobs:
           if [ -n "$(git status --porcelain css/)" ]; then
             echo "❌ Generated CSS is out of date!"
             echo ""
-            echo "The committed css/elementary.css differs from what the generator produces."
-            echo "Please run: ./scripts/generate-css.sh"
+            echo "The committed css/elementary-flow.css differs from what the generator produces."
+            echo "Please run: ./Scripts/generate-css.sh"
             echo ""
             git diff css/
             exit 1

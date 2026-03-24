@@ -70,7 +70,23 @@ The package contains a single, static CSS file that must be loaded for Elementar
 
 Make sure to bundle this file as part of your web project build.
 
-*More docs and guide coming soon...*
+*More docs and guides coming soon...*
+
+## Top-level types
+
+- `FlexRow`: Horizontal flex container for laying out children in a row, with optional alignment, spacing, wrapping, and reverse direction.
+- `FlexColumn`: Vertical flex container for stacking children in a column, with optional alignment, spacing, wrapping, and reverse direction.
+- `Block`: Generic block-level container (defaults to `div`) with optional sizing constraints like width/height and min/max values.
+- `Paragraph`: Text or custom-content paragraph element (`p`).
+- `Heading`: Semantic heading (`h1`-`h6`) for titles and section labels.
+
+## Style modifier
+
+Use `.style(...)` to attach one or more CSS-like style values directly to an element in Swift. You can chain multiple `.style(...)` calls to keep base layout and visual details separate.
+
+## `when:` parameter
+
+Use `when:` inside `.style(...)` to apply styles only in a specific state (for example `.hover` or `.focus`). This keeps conditional styling colocated with base styles while still mapping to CSS behavior.
 
 ## 🚧 Work In Progress 🚧
 
@@ -81,17 +97,4 @@ Motivation
 + works well for server and client use cases (ie: try to save bytes on the wire, and in the binary...)
 + stay extensible and flexible (ie: no fixed overload, no enums, allow raw CSS everywhere)
 + stay composable: should work in combination with other CSS solutions (tailwind, bootstrap, ...)
-+ try to cover most needs without have the base-css file explode
-
-
-TODO:
-- [x] Figure out what to do with "Block", "Paragraph" and so on, add Heading maybe? (hard-curated params, or just "_ styles"?)
-- [x] Carefully think about other "primitives", like "Link" or "Button" (stay clean an unopinionated though) -> do not burn these yet
-- [x] Add shadow, but probably introduce separate variables (a single "box-shadow" is a bit much, often you want separate control)
-- [ ] Media-queries for breakpoints
-- [ ] "Container" sizes? we want this? we can use CSS variables
-- [x] Make sure the display is set on Block, Text, otherwise changing the tag would case layout differences (make add a few base classes in CSS)
-- [ ] think about a theme system (ie: generated CSS can use variables, swift code can pass these variables)
-- [ ] think about colors in general (I'd rather not litter the space with a ton of colors, everybody wants their own...)
-- [ ] think about utilities on top like overlay, ZStack, and absolute positioning in general... currently that is very CSS-y
-- [ ] the CSS file generator could be parameterized (theme, breakpoints, other stuff?) and generate a more adjusted file
++ try to cover most needs without having the base-css file explode
