@@ -64,6 +64,10 @@ struct Card: HTML {
 }
 ```
 
+## Demo
+
+Check out a simple demo app [here](https://elementary-swift.github.io/elementary-flow/). ([source code](./Examples/WasmExample))
+
 ## How to use it
 
 The package contains a single, static CSS file that must be loaded for ElementaryFlow to work: [css/elementary-flow.css](css/elementary-flow.css).
